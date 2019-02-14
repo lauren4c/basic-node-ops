@@ -1,0 +1,115 @@
+###Questions
+
+> Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+A: The `sort` command created an alphabetized list of all of the lines at their respective indentation.
+Output:
+```
+      break;
+      break;
+      commandLibrary.cat(userInputArray.slice(1));
+      commandLibrary.echo(userInputArray.slice(1).join(" "));
+      done(data);
+      if (err) throw err;
+    case "cat":
+    case "echo":
+    const fileName = fullPath[0];
+    done(userInput);
+    fs.readFile(fileName, (err, data) => {
+    });
+  cat: function(fullPath) {
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(" ");
+  echo: function(userInput) {
+  process.stdout.write("\nprompt > ");
+  process.stdout.write(output);
+  switch (command) {
+  }
+  }
+  },
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+```
+
+The `wc` command outputs the lines, words and byte-count for the document. Output was `36      73     780 commands.js`
+
+The `uniq` command outputs only unique, neighboring lines of a document. Output was th same as the file because the file has no repeated, neighboring lines:
+```
+const fs = require("fs");
+
+function done(output) {
+  process.stdout.write(output);
+  process.stdout.write("\nprompt > ");
+}
+
+function evaluateCmd(userInput) {
+  const userInputArray = userInput.split(" ");
+  const command = userInputArray[0];
+
+  switch (command) {
+    case "echo":
+      commandLibrary.echo(userInputArray.slice(1).join(" "));
+      break;
+    case "cat":
+      commandLibrary.cat(userInputArray.slice(1));
+      break;
+  }
+}
+
+const commandLibrary = {
+  echo: function(userInput) {
+    done(userInput);
+  },
+  cat: function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (err, data) => {
+      if (err) throw err;
+      done(data);
+    });
+  }
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+```
+
+> Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+command run: `ls | head -2`
+
+Output: `bash.js
+basic_node_operations_answers.txt`
+
+This command tells terminal to list the files in the current folder, but only output the first two.
+
+###Programing Question
+> Reverse String Reverse String
+
+Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+Example
+Input: "I'm learning to program algorithms!"
+Output: "m'I gninrael ot margorp !smhtirogla"
+
+View it on Repl.it: https://repl.it/@lauren4c/4cReverseString
+
+```
+var input = "I'm learning to program algorithms!";
+
+function reverseString(str){
+  array = [];
+  str = str.split (' ');
+  str.forEach((word) =>
+   array.push(word.split("").reverse().join("")));
+
+   return array.join(' ');
+ }
+
+reverseString(input); //'m'I gninrael ot margorp !smhtirogla'
+```
